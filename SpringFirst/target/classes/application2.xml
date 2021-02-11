@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- 사용할 객체가 자주 바뀌는 경우, xml을 쓰는 것이 좋다. -->
+	<context:component-scan base-package="com.koreait.springfirst"/>
+	
+	<!-- @Autowired에 자동으로 해당 객체가 들어간다. 
+	@Component 사용 할 필요 X, 다른 객체를 사용해야 할 경우 '패키지 명.클래스 명'에서 클래스 명만 바꿔주면 된다. -->
+	<beans:bean id="speaker" class="com.koreait.springfirst.BossSpeaker"/>
+	
+</beans:beans>

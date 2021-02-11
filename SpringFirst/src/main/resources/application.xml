@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- bean 등록 : Factory 패턴이랑 비슷하다. 객체 한개만 생성  -->
+	<beans:bean id="refSpeaker" class="com.koreait.springfirst.HamanSpeaker"></beans:bean>
+	
+	<!-- 기본생성자가 호출된다. -->
+	<!-- tv라는 이름으로 객체화 한다. 그리고 안에 set이 꼭 있어야 한다. -->
+	<beans:bean id="tv" class="com.koreait.springfirst.LgTV">
+		<!-- 생성자 이용시 사용하는 방법 -->
+		<beans:constructor-arg value="10"/>
+		<beans:constructor-arg value="20"/>
+		
+		<!-- Setter 메서드를 통해 의존관계가 있는 bean을 주입하려면 아래 문장을 추가 -->
+		<beans:property name="speaker" ref="refSpeaker"/>
+	</beans:bean>
+	
+</beans:beans>
